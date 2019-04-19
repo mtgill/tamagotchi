@@ -43,6 +43,7 @@ const eatButtonEvents = () => {
 const getEatModule = () => {
   let domString = '';
   domString += '<div id="eatSection">';
+  domString += '<h3>Eat!</h3>';
   domString += '<button id="addButton">Add Food</button>';
   domString += '<button id="subtractButton">Subtract Food</button>';
   domString += `<div id="food-level">Food Level: ${full}</div>`;
