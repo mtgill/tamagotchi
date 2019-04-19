@@ -2,6 +2,9 @@ import util from '../helpers/util';
 
 let fun = 50;
 
+const getFun = () => fun;
+
+
 const superFun = () => {
   fun += 50;
   if (fun > 100) {
@@ -23,16 +26,4 @@ const playButtonEvents = () => {
   document.getElementById('sortaFunButton').addEventListener('click', sortaFun);
 };
 
-const getPlayModule = () => {
-  let domString = '';
-  domString += '<div id="playSection">';
-  domString += '<h3>Play!</h3>';
-  domString += '<button id="superFunButton">Super Fun!</button>';
-  domString += '<button id="sortaFunButton">Sorta Fun..?</button>';
-  domString += `<div id="fun-level">Fun Level: ${fun}</div>`;
-  domString += '</div>';
-  util.printToDom('play', domString);
-  playButtonEvents();
-};
-
-export default { getPlayModule };
+export default { playButtonEvents, getFun };

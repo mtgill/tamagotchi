@@ -2,6 +2,8 @@ import util from '../helpers/util';
 
 let strength = 100;
 
+const getStrength = () => strength;
+
 const runAway = () => {
   strength += 1;
   if (strength > 100) {
@@ -23,16 +25,4 @@ const fightButtonEvents = () => {
   document.getElementById('violenceButton').addEventListener('click', doTheViolence);
 };
 
-const getFightModule = () => {
-  let domString = '';
-  domString += '<div id="fightSection">';
-  domString += '<h3>FIGHT!!</h3>';
-  domString += '<button id="runButton">Run Away!</button>';
-  domString += '<button id="violenceButton">Do the Violence!</button>';
-  domString += `<div id="strength-level">Strength Level: ${strength}</div>`;
-  domString += '</div>';
-  util.printToDom('fight', domString);
-  fightButtonEvents();
-};
-
-export default { getFightModule };
+export default { fightButtonEvents, getStrength };
