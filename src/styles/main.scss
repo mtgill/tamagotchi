@@ -1,3 +1,29 @@
 body {
   background-color: lightblue;
 }
+
+#app{
+  display: flex;
+  flex-flow: row wrap;
+
+  #eat{
+    background-color: lightcoral;
+    height: 400px;
+    width: 50%;
+  }
+  #play{
+    background-color: lightgreen;
+    height: 400px;
+    width: 50%;
+  }
+  #fight{
+    background-color: lightseagreen;
+    height: 400px;
+    width: 50%;
+  }
+  #sleep{
+    background-color: lightgrey;
+    height: 400px;
+    width: 50%;
+  }
+}

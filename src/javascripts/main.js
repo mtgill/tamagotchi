@@ -1,3 +1,9 @@
 import '../styles/main.scss';
+import eatModule from './components/eat';
 
-console.error('main js');
+
+const init = () => {
+  eatModule.getEatModule();
+};
+
+init();
