@@ -3,13 +3,35 @@ import util from '../helpers/util';
 
 let full = 100;
 
+// const eatMath = (e) => {
+//   e.preventDefault();
+//   const buttonId = e.target.id;
+//   if (buttonId === 'addButton') {
+//     full += 10;
+//     // if (full > 100) {
+//     //   full = 100;
+//     // }
+//   } else if (buttonId === 'subtractButton') {
+//     full -= 3;
+//     // if (full < 0) {
+//     //   full = 0;
+//     // }
+//   }
+// };
+
 const addFood = () => {
   full += 10;
+  if (full > 100) {
+    full = 100;
+  }
   util.printToDom('food-level', full);
 };
 
 const subtractFood = () => {
   full -= 3;
+  if (full < 0) {
+    full = 0;
+  }
   util.printToDom('food-level', full);
 };
 
