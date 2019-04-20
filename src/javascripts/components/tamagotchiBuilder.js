@@ -24,7 +24,7 @@ const quadBuilder = () => {
     domString += `<h3>${quad.name}!</h3>`;
     domString += `<button id=${quad.btnOneId}>${quad.btnOne}</button>`;
     domString += `<button id=${quad.btnTwoId}>${quad.btnTwo}</button>`;
-    domString += `<div id=${quad.valDiv}>${quad.valDiv}: ${eat.getFull()}</div>`;
+    domString += `<div id=${quad.valDiv}>${quad.valDiv}: ${quad.value}</div>`;
     domString += '</div>';
     const divId = `${quad.mainDiv}`;
     util.printToDom(divId, domString);
@@ -32,10 +32,10 @@ const quadBuilder = () => {
     document.getElementById(quad.btnTwoId).addEventListener('click', progress.progressCalc);
   });
   progress.progressCalc();
-  eat.eatButtonEvents();
-  play.playButtonEvents();
-  sleep.sleepButtonEvents();
-  fight.fightButtonEvents();
+  progress.eatButtonEvents();
+  progress.playButtonEvents();
+  progress.sleepButtonEvents();
+  progress.fightButtonEvents();
 };
 
 export default { quadBuilder, getQuadArray };

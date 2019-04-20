@@ -1,5 +1,3 @@
-import util from '../helpers/util';
-
 const playObj = {
   name: 'Play',
   btnOne: 'Super Fun!',
@@ -13,30 +11,14 @@ const playObj = {
   valDiv: 'fun-level',
 };
 
-const getFun = () => playObj.value;
+let fun = 50;
+
+const getFun = () => fun;
 
 const getPlayObj = () => playObj;
 
-
-const superFun = () => {
-  playObj.value += 50;
-  if (playObj.value > 100) {
-    playObj.value = 100;
-  }
-  util.printToDom('fun-level', playObj.value);
+const setFun = (value) => {
+  fun = value;
 };
 
-const sortaFun = () => {
-  playObj.value += 2;
-  if (playObj.value > 100) {
-    playObj.value = 100;
-  }
-  util.printToDom('fun-level', playObj.value);
-};
-
-const playButtonEvents = () => {
-  document.getElementById('superFunButton').addEventListener('click', superFun);
-  document.getElementById('sortaFunButton').addEventListener('click', sortaFun);
-};
-
-export default { playButtonEvents, getFun, getPlayObj };
+export default { getFun, getPlayObj, setFun };

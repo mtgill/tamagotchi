@@ -8,27 +8,31 @@ body {
   justify-content: space-evenly;
 
   #progress{
-    display: block;
+    width: 100%;
+    text-align: center;
   }
-
   #eat{
     background-color: lightcoral;
     height: 400px;
     width: 50%;
+    text-align: center;
   }
   #play{
     background-color: lightgreen;
     height: 400px;
     width: 50%;
+    text-align: center;
   }
   #fight{
     background-color: lightseagreen;
     height: 400px;
     width: 50%;
+    text-align: center;
   }
   #sleep{
     background-color: lightgrey;
     height: 400px;
     width: 50%;
+    text-align: center;
   }
 }
