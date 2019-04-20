@@ -1,23 +1,30 @@
 import util from '../helpers/util';
 
-let full = 100;
+const eatObj = {
+  name: 'Eat',
+  btnOne: 'Add Food',
+  btnTwo: 'Subtract Food',
+  full: 100,
+  btnOneVal: 10,
+  btnTwoVal: -3,
+};
 
-const getFull = () => full;
+const getFull = () => eatObj.full;
 
 const addFood = () => {
-  full += 10;
-  if (full > 100) {
-    full = 100;
+  eatObj.full += 10;
+  if (eatObj.full > 100) {
+    eatObj.full = 100;
   }
-  util.printToDom('food-level', full);
+  util.printToDom('food-level', eatObj.full);
 };
 
 const subtractFood = () => {
-  full -= 3;
-  if (full < 0) {
-    full = 0;
+  eatObj.full -= 3;
+  if (eatObj.full < 0) {
+    eatObj.full = 0;
   }
-  util.printToDom('food-level', full);
+  util.printToDom('food-level', eatObj.full);
 };
 
 const eatButtonEvents = () => {
