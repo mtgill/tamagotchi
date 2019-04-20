@@ -1,14 +1,10 @@
 import '../styles/main.scss';
-import eatModule from './components/eat';
-import playModule from './components/play';
-import fightModule from './components/fight';
-import sleepModule from './components/sleep';
+import builder from './components/tamagotchiBuilder';
+// import progressBar from './components/progressBar';
+// import progress from './components/progressBar';
 
 const init = () => {
-  eatModule.getEatModule();
-  playModule.getPlayModule();
-  fightModule.getFightModule();
-  sleepModule.getSleepModule();
+  builder.quadBuilder();
 };
 
 init();

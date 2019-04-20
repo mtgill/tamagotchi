@@ -1,55 +1,24 @@
-import util from '../helpers/util';
-
+const eatObj = {
+  name: 'Eat',
+  btnOne: 'Add Food',
+  btnTwo: 'Subtract Food',
+  value: 100,
+  btnOneVal: 10,
+  btnTwoVal: -3,
+  btnOneId: 'addButton',
+  btnTwoId: 'subtractButton',
+  mainDiv: 'eat',
+  valDiv: 'food-level',
+};
 
 let full = 100;
 
-// const eatMath = (e) => {
-//   e.preventDefault();
-//   const buttonId = e.target.id;
-//   if (buttonId === 'addButton') {
-//     full += 10;
-//     // if (full > 100) {
-//     //   full = 100;
-//     // }
-//   } else if (buttonId === 'subtractButton') {
-//     full -= 3;
-//     // if (full < 0) {
-//     //   full = 0;
-//     // }
-//   }
-// };
+const getFull = () => full;
 
-const addFood = () => {
-  full += 10;
-  if (full > 100) {
-    full = 100;
-  }
-  util.printToDom('food-level', full);
+const setFull = (value) => {
+  full = value;
 };
 
-const subtractFood = () => {
-  full -= 3;
-  if (full < 0) {
-    full = 0;
-  }
-  util.printToDom('food-level', full);
-};
+const getEatObj = () => eatObj;
 
-const eatButtonEvents = () => {
-  document.getElementById('addButton').addEventListener('click', addFood);
-  document.getElementById('subtractButton').addEventListener('click', subtractFood);
-};
-
-const getEatModule = () => {
-  let domString = '';
-  domString += '<div id="eatSection">';
-  domString += '<h3>Eat!</h3>';
-  domString += '<button id="addButton">Add Food</button>';
-  domString += '<button id="subtractButton">Subtract Food</button>';
-  domString += `<div id="food-level">Food Level: ${full}</div>`;
-  domString += '</div>';
-  util.printToDom('eat', domString);
-  eatButtonEvents();
-};
-
-export default { getEatModule };
+export default { getFull, getEatObj, setFull };
