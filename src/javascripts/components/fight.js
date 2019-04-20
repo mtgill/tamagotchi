@@ -1,23 +1,41 @@
 import util from '../helpers/util';
 
-let strength = 100;
 
-const getStrength = () => strength;
+const fightObj = {
+  name: 'Fight',
+  btnOne: 'Run Away',
+  btnTwo: 'Do the Violence!',
+  value: 100,
+  btnOneVal: 1,
+  btnTwoVal: -10,
+  btnOneId: 'runButton',
+  btnTwoId: 'violenceButton',
+  mainDiv: 'fight',
+  valDiv: 'strength-level',
+};
+
+const getStrength = () => fightObj.value;
+const getFightObj = () => fightObj;
+
 
 const runAway = () => {
-  strength += 1;
-  if (strength > 100) {
-    strength = 100;
+  let fightVal = fightObj.value;
+  fightVal += 1;
+  if (fightVal > 100) {
+    fightVal = 100;
   }
-  util.printToDom('strength-level', strength);
+  util.printToDom('strength-level', fightVal);
+  fightObj.value = fightVal;
+  console.error(fightObj.value);
 };
 
 const doTheViolence = () => {
-  strength -= 10;
-  if (strength < 0) {
-    strength = 0;
+  fightObj.value -= 10;
+  if (fightObj.value < 0) {
+    fightObj.value = 0;
   }
-  util.printToDom('strength-level', strength);
+  util.printToDom('strength-level', fightObj.value);
+  getStrength();
 };
 
 const fightButtonEvents = () => {
@@ -25,4 +43,4 @@ const fightButtonEvents = () => {
   document.getElementById('violenceButton').addEventListener('click', doTheViolence);
 };
 
-export default { fightButtonEvents, getStrength };
+export default { fightButtonEvents, getStrength, getFightObj };

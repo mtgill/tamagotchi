@@ -1,28 +1,22 @@
-import energy from './sleep';
-import fun from './play';
+import sleep from './sleep';
+import play from './play';
 import fight from './fight';
 import eat from './eat';
-// import util from '../helpers/util';
+import util from '../helpers/util';
+
 
 const progressCalc = () => {
-  // let energyValue = energy.getEnergy();
-  // let funValue = fun.getFun();
-  // const fullValue = eat.getFull();
-  // const strengthValue = fight.getStrength();
-
-  const progressValue = ((energy.getEnergy() + fun.getFun()
-  + eat.getFull() + fight.getStrength()) / 4);
-  return progressValue;
-};
-
-const getProgressBar = () => {
-  const progress = progressCalc();
+  const sleepVar = sleep.getEnergy();
+  const playVar = play.getFun();
+  const eatVar = eat.getFull();
+  const fightVar = fight.getStrength();
+  const progressValue = (sleepVar + playVar
+  + eatVar + fightVar) / 4;
   let domString = '';
   domString += '<div id="progressBar"><h2>Progress</h2>';
-  domString += `<div id="progress-bar">Progress: ${progress}</div>`;
+  domString += `<div id="progress-bar">Progress: ${progressValue}</div>`;
   domString += '</div>';
-  // util.printToDom('progress', domString);
-  return domString;
+  util.printToDom('progress', domString);
 };
 
-export default { getProgressBar, progressCalc };
+export default { progressCalc };

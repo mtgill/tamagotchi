@@ -1,24 +1,37 @@
 import util from '../helpers/util';
 
-let fun = 50;
+const playObj = {
+  name: 'Play',
+  btnOne: 'Super Fun!',
+  btnTwo: 'Sorta Fun?',
+  value: 50,
+  btnOneVal: 50,
+  btnTwoVal: 2,
+  btnOneId: 'superFunButton',
+  btnTwoId: 'sortaFunButton',
+  mainDiv: 'play',
+  valDiv: 'fun-level',
+};
 
-const getFun = () => fun;
+const getFun = () => playObj.value;
+
+const getPlayObj = () => playObj;
 
 
 const superFun = () => {
-  fun += 50;
-  if (fun > 100) {
-    fun = 100;
+  playObj.value += 50;
+  if (playObj.value > 100) {
+    playObj.value = 100;
   }
-  util.printToDom('fun-level', fun);
+  util.printToDom('fun-level', playObj.value);
 };
 
 const sortaFun = () => {
-  fun += 2;
-  if (fun > 100) {
-    fun = 100;
+  playObj.value += 2;
+  if (playObj.value > 100) {
+    playObj.value = 100;
   }
-  util.printToDom('fun-level', fun);
+  util.printToDom('fun-level', playObj.value);
 };
 
 const playButtonEvents = () => {
@@ -26,4 +39,4 @@ const playButtonEvents = () => {
   document.getElementById('sortaFunButton').addEventListener('click', sortaFun);
 };
 
-export default { playButtonEvents, getFun };
+export default { playButtonEvents, getFun, getPlayObj };

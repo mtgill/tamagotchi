@@ -5,6 +5,11 @@ body {
 #app{
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-evenly;
+
+  #progress{
+    display: block;
+  }
 
   #eat{
     background-color: lightcoral;

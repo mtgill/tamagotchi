@@ -4,27 +4,38 @@ const eatObj = {
   name: 'Eat',
   btnOne: 'Add Food',
   btnTwo: 'Subtract Food',
-  full: 100,
   btnOneVal: 10,
   btnTwoVal: -3,
+  btnOneId: 'addButton',
+  btnTwoId: 'subtractButton',
+  mainDiv: 'eat',
+  valDiv: 'food-level',
 };
 
-const getFull = () => eatObj.full;
+let full = 100;
+
+const getFull = () => full;
+
+const getEatObj = () => eatObj;
 
 const addFood = () => {
-  eatObj.full += 10;
-  if (eatObj.full > 100) {
-    eatObj.full = 100;
+  full += 10;
+  if (full > 100) {
+    full = 100;
   }
-  util.printToDom('food-level', eatObj.full);
+  util.printToDom('food-level', full);
+  console.error(full);
+  return full;
 };
 
 const subtractFood = () => {
-  eatObj.full -= 3;
-  if (eatObj.full < 0) {
-    eatObj.full = 0;
+  full -= 3;
+  if (full < 0) {
+    full = 0;
   }
-  util.printToDom('food-level', eatObj.full);
+  util.printToDom('food-level', full);
+  console.error(full);
+  return full;
 };
 
 const eatButtonEvents = () => {
@@ -32,4 +43,6 @@ const eatButtonEvents = () => {
   document.getElementById('subtractButton').addEventListener('click', subtractFood);
 };
 
-export default { getFull, eatButtonEvents };
+export default {
+  getFull, eatButtonEvents, getEatObj, addFood, subtractFood,
+};

@@ -1,23 +1,36 @@
 import util from '../helpers/util';
 
-let energy = 50;
+const sleepObj = {
+  name: 'Sleep',
+  btnOne: 'Nap',
+  btnTwo: 'Deep Sleep',
+  value: 50,
+  btnOneVal: 50,
+  btnTwoVal: 60,
+  btnOneId: 'napButton',
+  btnTwoId: 'deepSleepButton',
+  mainDiv: 'sleep',
+  valDiv: 'energy-level',
+};
 
-const getEnergy = () => energy;
+const getEnergy = () => sleepObj.value;
+
+const getSleepObj = () => sleepObj;
 
 const nap = () => {
-  energy += 50;
-  if (energy > 100) {
-    energy = 100;
+  sleepObj.value += 50;
+  if (sleepObj.value > 100) {
+    sleepObj.value = 100;
   }
-  util.printToDom('energy-level', energy);
+  util.printToDom('energy-level', sleepObj.value);
 };
 
 const deepSleep = () => {
-  energy += 60;
-  if (energy > 100) {
-    energy = 100;
+  sleepObj.value += 60;
+  if (sleepObj.value > 100) {
+    sleepObj.value = 100;
   }
-  util.printToDom('energy-level', energy);
+  util.printToDom('energy-level', sleepObj.value);
 };
 
 const sleepButtonEvents = () => {
@@ -25,4 +38,4 @@ const sleepButtonEvents = () => {
   document.getElementById('deepSleepButton').addEventListener('click', deepSleep);
 };
 
-export default { sleepButtonEvents, getEnergy };
+export default { sleepButtonEvents, getEnergy, getSleepObj };
