@@ -8,31 +8,33 @@ const progressCalc = () => {
   const progressValue = (sleep.getEnergy() + play.getFun()
   + eat.getFull() + fight.getStrength()) / 4;
   let domString = '';
-  domString += '<div id="progressBar"><h2>Progress</h2>';
-  domString += `<div id="progress-bar">Progress: ${progressValue}</div>`;
-  domString += '</div>';
+  domString += `<div id="progressBar"><h2>Progress: ${progressValue}</h2></div>`;
   util.printToDom('progress', domString);
 };
 
 // eat functions
 const addFood = () => {
   let full = eat.getFull();
+  let domString = '';
   full += 10;
   if (full > 100) {
     full = 100;
   }
-  util.printToDom('food-level', full);
+  domString += `<h3>food-level: ${full}</h3>`;
+  util.printToDom('food-level', domString);
   eat.setFull(full);
   progressCalc();
 };
 
 const subtractFood = () => {
   let full = eat.getFull();
+  let domString = '';
   full -= 3;
   if (full < 0) {
     full = 0;
   }
-  util.printToDom('food-level', full);
+  domString += `<h3>food-level: ${full}</h3>`;
+  util.printToDom('food-level', domString);
   eat.setFull(full);
   progressCalc();
 };
@@ -40,22 +42,26 @@ const subtractFood = () => {
 // fight functions
 const runAway = () => {
   let strength = fight.getStrength();
+  let domString = '';
   strength += 1;
   if (strength > 100) {
     strength = 100;
   }
-  util.printToDom('strength-level', strength);
+  domString += `<h3>strength-level: ${strength}</h3>`;
+  util.printToDom('strength-level', domString);
   fight.setStrength(strength);
   progressCalc();
 };
 
 const doTheViolence = () => {
   let strength = fight.getStrength();
+  let domString = '';
   strength -= 10;
   if (strength < 0) {
     strength = 0;
   }
-  util.printToDom('strength-level', strength);
+  domString += `<h3>strength-level: ${strength}</h3>`;
+  util.printToDom('strength-level', domString);
   fight.setStrength(strength);
   progressCalc();
 };
@@ -63,22 +69,26 @@ const doTheViolence = () => {
 // sleep functions
 const nap = () => {
   let energy = sleep.getEnergy();
+  let domString = '';
   energy += 50;
   if (energy > 100) {
     energy = 100;
   }
-  util.printToDom('energy-level', energy);
+  domString += `<h3>strength-level: ${energy}</h3>`;
+  util.printToDom('energy-level', domString);
   sleep.setEnergy(energy);
   progressCalc();
 };
 
 const deepSleep = () => {
   let energy = sleep.getEnergy();
+  let domString = '';
   energy += 60;
   if (energy > 100) {
     energy = 100;
   }
-  util.printToDom('energy-level', energy);
+  domString += `<h3>strength-level: ${energy}</h3>`;
+  util.printToDom('energy-level', domString);
   sleep.setEnergy(energy);
   progressCalc();
 };
@@ -86,22 +96,26 @@ const deepSleep = () => {
 // play functions
 const superFun = () => {
   let fun = play.getFun();
+  let domString = '';
   fun += 50;
   if (fun > 100) {
     fun = 100;
   }
-  util.printToDom('fun-level', fun);
+  domString += `<h3>strength-level: ${fun}</h3>`;
+  util.printToDom('fun-level', domString);
   play.setFun(fun);
   progressCalc();
 };
 
 const sortaFun = () => {
   let fun = play.getFun();
+  let domString = '';
   fun += 2;
   if (fun > 100) {
     fun = 100;
   }
-  util.printToDom('fun-level', fun);
+  domString += `<h3>strength-level: ${fun}</h3>`;
+  util.printToDom('fun-level', domString);
   play.setFun(fun);
   progressCalc();
 };
