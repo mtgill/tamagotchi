@@ -3,10 +3,15 @@ import play from './play';
 import fight from './fight';
 import eat from './eat';
 import util from '../helpers/util';
+import interaction from './interaction';
 
 const progressCalc = () => {
+  let full = eat.getFull();
+  if (full > 100) {
+    full = 100;
+  }
   const progressValue = (sleep.getEnergy() + play.getFun()
-  + eat.getFull() + fight.getStrength()) / 4;
+  + full + fight.getStrength()) / 4;
   let domString = '';
   domString += `<div id="progressBar"><h2>Progress: ${progressValue.toFixed(0)}</h2></div>`;
   util.printToDom('progress', domString);
@@ -15,7 +20,7 @@ const progressCalc = () => {
 const randomNumber = () => {
   const num = (Math.random() * 15) + 1;
   return num;
-}
+};
 
 // eat functions
 const addFood = () => {
@@ -23,11 +28,12 @@ const addFood = () => {
   let domString = '';
   full += randomNumber();
   if (full > 100) {
-    full = 100;
+    domString += '<h3>food-level: 100</h3>';
+    util.printToDom('food-level', domString);
   }
-  domString += `<h3>food-level: ${full.toFixed(0)}</h3>`;
-  util.printToDom('food-level', domString);
   eat.setFull(full);
+  progressCalc();
+  interaction.foodComa();
   progressCalc();
 };
 
@@ -35,6 +41,10 @@ const subtractFood = () => {
   let full = eat.getFull();
   let domString = '';
   full -= randomNumber();
+  if (full > 100) {
+    domString += '<h3>food-level: 100</h3>';
+    util.printToDom('food-level', domString);
+  }
   if (full < 0) {
     alert('Oh no, you killed it!');
     full = 0;
@@ -42,6 +52,8 @@ const subtractFood = () => {
   domString += `<h3>food-level: ${full.toFixed(0)}</h3>`;
   util.printToDom('food-level', domString);
   eat.setFull(full);
+  progressCalc();
+  interaction.weakness();
   progressCalc();
 };
 
