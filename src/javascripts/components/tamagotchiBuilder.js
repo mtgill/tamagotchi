@@ -4,6 +4,7 @@ import fight from './fight';
 import eat from './eat';
 import progress from './progressBar';
 import util from '../helpers/util';
+import picture from './picture';
 
 const quadArray = [];
 
@@ -31,6 +32,8 @@ const quadBuilder = () => {
     document.getElementById(quad.btnOneId).addEventListener('click', progress.progressCalc);
     document.getElementById(quad.btnTwoId).addEventListener('click', progress.progressCalc);
   });
+  picture.pictureButton();
+  picture.pictureButtonEvent();
   progress.progressCalc();
   progress.eatButtonEvents();
   progress.playButtonEvents();
