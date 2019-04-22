@@ -8,19 +8,24 @@ const progressCalc = () => {
   const progressValue = (sleep.getEnergy() + play.getFun()
   + eat.getFull() + fight.getStrength()) / 4;
   let domString = '';
-  domString += `<div id="progressBar"><h2>Progress: ${progressValue}</h2></div>`;
+  domString += `<div id="progressBar"><h2>Progress: ${progressValue.toFixed(0)}</h2></div>`;
   util.printToDom('progress', domString);
 };
+
+const randomNumber = () => {
+  const num = (Math.random() * 15) + 1;
+  return num;
+}
 
 // eat functions
 const addFood = () => {
   let full = eat.getFull();
   let domString = '';
-  full += 10;
+  full += randomNumber();
   if (full > 100) {
     full = 100;
   }
-  domString += `<h3>food-level: ${full}</h3>`;
+  domString += `<h3>food-level: ${full.toFixed(0)}</h3>`;
   util.printToDom('food-level', domString);
   eat.setFull(full);
   progressCalc();
@@ -29,11 +34,12 @@ const addFood = () => {
 const subtractFood = () => {
   let full = eat.getFull();
   let domString = '';
-  full -= 3;
+  full -= randomNumber();
   if (full < 0) {
+    alert('Oh no, you killed it!');
     full = 0;
   }
-  domString += `<h3>food-level: ${full}</h3>`;
+  domString += `<h3>food-level: ${full.toFixed(0)}</h3>`;
   util.printToDom('food-level', domString);
   eat.setFull(full);
   progressCalc();
@@ -43,11 +49,11 @@ const subtractFood = () => {
 const runAway = () => {
   let strength = fight.getStrength();
   let domString = '';
-  strength += 1;
+  strength += randomNumber();
   if (strength > 100) {
     strength = 100;
   }
-  domString += `<h3>strength-level: ${strength}</h3>`;
+  domString += `<h3>strength-level: ${strength.toFixed(0)}</h3>`;
   util.printToDom('strength-level', domString);
   fight.setStrength(strength);
   progressCalc();
@@ -56,11 +62,12 @@ const runAway = () => {
 const doTheViolence = () => {
   let strength = fight.getStrength();
   let domString = '';
-  strength -= 10;
+  strength -= randomNumber();
   if (strength < 0) {
+    alert('Oh no, you killed it!');
     strength = 0;
   }
-  domString += `<h3>strength-level: ${strength}</h3>`;
+  domString += `<h3>strength-level: ${strength.toFixed(0)}</h3>`;
   util.printToDom('strength-level', domString);
   fight.setStrength(strength);
   progressCalc();
@@ -70,11 +77,11 @@ const doTheViolence = () => {
 const nap = () => {
   let energy = sleep.getEnergy();
   let domString = '';
-  energy += 50;
+  energy += randomNumber();
   if (energy > 100) {
     energy = 100;
   }
-  domString += `<h3>strength-level: ${energy}</h3>`;
+  domString += `<h3>strength-level: ${energy.toFixed(0)}</h3>`;
   util.printToDom('energy-level', domString);
   sleep.setEnergy(energy);
   progressCalc();
@@ -83,11 +90,11 @@ const nap = () => {
 const deepSleep = () => {
   let energy = sleep.getEnergy();
   let domString = '';
-  energy += 60;
+  energy += randomNumber();
   if (energy > 100) {
     energy = 100;
   }
-  domString += `<h3>strength-level: ${energy}</h3>`;
+  domString += `<h3>strength-level: ${energy.toFixed(0)}</h3>`;
   util.printToDom('energy-level', domString);
   sleep.setEnergy(energy);
   progressCalc();
@@ -97,11 +104,11 @@ const deepSleep = () => {
 const superFun = () => {
   let fun = play.getFun();
   let domString = '';
-  fun += 50;
+  fun += randomNumber();
   if (fun > 100) {
     fun = 100;
   }
-  domString += `<h3>strength-level: ${fun}</h3>`;
+  domString += `<h3>strength-level: ${fun.toFixed(0)}</h3>`;
   util.printToDom('fun-level', domString);
   play.setFun(fun);
   progressCalc();
@@ -110,11 +117,11 @@ const superFun = () => {
 const sortaFun = () => {
   let fun = play.getFun();
   let domString = '';
-  fun += 2;
+  fun += randomNumber();
   if (fun > 100) {
     fun = 100;
   }
-  domString += `<h3>strength-level: ${fun}</h3>`;
+  domString += `<h3>strength-level: ${fun.toFixed(0)}</h3>`;
   util.printToDom('fun-level', domString);
   play.setFun(fun);
   progressCalc();
