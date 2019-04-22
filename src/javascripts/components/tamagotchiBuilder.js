@@ -23,7 +23,7 @@ const quadBuilder = () => {
     let domString = '';
     domString += `<div id="${quad.name}Section">`;
     domString += `<h3>${quad.name}!</h3>`;
-    domString += `<button class"buttons" id=${quad.btnOneId}>${quad.btnOne}</button>`;
+    domString += `<button class="buttons" id=${quad.btnOneId}>${quad.btnOne}</button>`;
     domString += `<button class="buttons" id=${quad.btnTwoId}>${quad.btnTwo}</button>`;
     domString += `<div id=${quad.valDiv}><h3>${quad.valDiv}: ${quad.value}</h3></div>`;
     domString += '</div>';
