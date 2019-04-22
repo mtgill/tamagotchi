@@ -26,25 +26,29 @@ const randomNumber = () => {
 const addFood = () => {
   let full = eat.getFull();
   let domString = '';
-  full += randomNumber();
-  if (full > 100) {
-    domString += '<h3>food-level: 100</h3>';
+  if (full >= 100) {
+    full = 100;
+    domString += `<h3>food-level: ${full.toFixed(0)}</h3>`;
     util.printToDom('food-level', domString);
+    eat.setFull(full);
+    progressCalc();
+  } else {
+    full += randomNumber();
+    if (full >= 100) {
+      full = 100;
+    }
+    domString += `<h3>food-level: ${full.toFixed(0)}</h3>`;
+    util.printToDom('food-level', domString);
+    interaction.foodComa();
+    eat.setFull(full);
+    progressCalc();
   }
-  eat.setFull(full);
-  progressCalc();
-  interaction.foodComa();
-  progressCalc();
 };
 
 const subtractFood = () => {
   let full = eat.getFull();
   let domString = '';
   full -= randomNumber();
-  if (full > 100) {
-    domString += '<h3>food-level: 100</h3>';
-    util.printToDom('food-level', domString);
-  }
   if (full < 0) {
     alert('Oh no, you killed it!');
     full = 0;

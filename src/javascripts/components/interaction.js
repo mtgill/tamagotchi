@@ -10,25 +10,43 @@ const foodComa = () => {
   let domString = '';
   const full = eat.getFull();
   let energy = sleep.getEnergy();
-  if (full >= 100 && i < 1) {
-    energy -= 5;
+  if (full === 100) {
+    if (i < 1) {
+      if (energy <= 0) {
+        energy = 0;
+        domString += `<h3>energy-level: ${energy.toFixed(0)}</h3>`;
+        util.printToDom('energy-level', domString);
+        sleep.setEnergy(energy);
+        i = 1;
+      } else {
+        energy -= 5;
+        domString += `<h3>energy-level: ${energy.toFixed(0)}</h3>`;
+        util.printToDom('energy-level', domString);
+        sleep.setEnergy(energy);
+        i = 1;
+      }
+    } else if (i >= 1) {
+      domString += `<h3>energy-level: ${energy.toFixed(0)}</h3>`;
+      util.printToDom('energy-level', domString);
+    }
+  } else if (energy <= 0) {
+    energy = 0;
     domString += `<h3>energy-level: ${energy.toFixed(0)}</h3>`;
     util.printToDom('energy-level', domString);
     sleep.setEnergy(energy);
-    i += 1;
-    console.error(i);
-  } else if (full === 100) {
+    i = 0;
+  } else {
     energy -= 5;
+    if (energy < 0) {
+      energy = 0;
+    }
     domString += `<h3>energy-level: ${energy.toFixed(0)}</h3>`;
     util.printToDom('energy-level', domString);
     sleep.setEnergy(energy);
-  } else if (full <= 100) {
-    energy -= 5;
-    domString += `<h3>energy-level: ${energy.toFixed(0)}</h3>`;
-    util.printToDom('energy-level', domString);
-    sleep.setEnergy(energy);
+    i = 0;
   }
 };
+
 
 const weakness = () => {
   let domString = '';
@@ -41,7 +59,6 @@ const weakness = () => {
   domString += `<h3>strength-level: ${strength.toFixed(0)}</h3>`;
   util.printToDom('strength-level', domString);
   fight.setStrength(strength);
-
 };
 
 export default { foodComa, weakness };
