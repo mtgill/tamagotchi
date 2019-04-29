@@ -5,6 +5,8 @@ This site is a virtual Tamagotchi game! Each section has two buttons with add an
 
 ## Screenshot
 
+![tamagotchi screenshot](https://raw.githubusercontent.com/mtgill/tamagotchi/master/assets/tamagotchi-screenshot.PNG "tamagotchi screenshot")
+
 ## Installation Instructions
 * Clone down this repo
 * At the root of the project run `npm install`
