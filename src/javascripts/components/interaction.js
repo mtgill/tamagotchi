@@ -51,10 +51,6 @@ const foodComa = () => {
 const weakness = () => {
   let domString = '';
   let strength = fight.getStrength();
-  if (strength === 0) {
-    return strength;
-    alert('Oh no, you killed it!');
-  }
   strength -= 10;
   domString += `<h3>strength-level: ${strength.toFixed(0)}</h3>`;
   util.printToDom('strength-level', domString);
