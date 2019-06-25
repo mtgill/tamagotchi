@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-alert */
 import sleep from './sleep';
 import play from './play';
 import fight from './fight';
